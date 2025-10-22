@@ -59,7 +59,7 @@ const reviews = [
     img: "/reviewpfps/oogway.png",
   }
 ];
- 
+
 const ReviewCard = ({
   img,
   name,
@@ -130,7 +130,7 @@ export default async function Home() {
 
       <BlurFade inView className="z-30">
         <h1 className="text-6xl leading-relaxed font-bold magic-text z-30">
-          upioguard
+          upioguard 1.5
         </h1>
       </BlurFade>
       <BlurFade delay={0.25} inView className="z-10">
