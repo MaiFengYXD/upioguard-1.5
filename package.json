@@ -1,6 +1,6 @@
 {
   "name": "upioguard",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -50,7 +50,7 @@
     "lua-format": "^1.4.1",
     "luamin": "^1.0.4",
     "lucide-react": "^0.417.0",
-    "next": "14.2.5",
+    "next": "^14.2.33",
     "next-auth": "^5.0.0-beta.20",
     "next-contentlayer2": "^0.5.0",
     "next-themes": "^0.3.0",
@@ -69,11 +69,17 @@
     "@types/react": "^18",
     "@types/react-beautiful-dnd": "^13.1.8",
     "@types/react-dom": "^18",
-    "drizzle-kit": "^0.23.1",
+    "drizzle-kit": ">=0.31.5",
+    "drizzle-orm": "^0.44.6",
+    "esbuild": "^0.25.11",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
+    "tsx": "^4.20.6",
     "typescript": "^5"
+  },
+  "overrides": {
+    "@esbuild-kit/esm-loader": "npm:tsx@^4.20.6"
   }
 }
