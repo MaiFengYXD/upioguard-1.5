@@ -30,9 +30,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         !profile.id ||
         !profile.username ||
         !profile.email ||
-        // !user.id ||
+        !user.id ||
         !user.name
       ) {
+        console.error("[SIGNIN] user sign in failed: missing profile information");  
         return false;
       }
 
@@ -43,10 +44,14 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
       cookies().delete("upioguard-signintype");
 
+      console.log(`[SIGNIN] detected sign in type ${signInType}, user profile id: ${profile.id}, user profile name: ${profile.name}`);
+
       if (signInType == "dashboard") {
         const is_first_time = (await db.select().from(admins)).length === 0;
 
         if (is_first_time) {
+          console.log("[SIGNIN] user login successsfully due to is_first_time")
+
           await db.insert(admins).values({
             discord_id: profile.id,
             name: user.name,
@@ -61,7 +66,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           .from(admins)
           .where(eq(admins.discord_id, profile.id));
 
-        return is_admin.length > 0;
+        const login_successfuly = is_admin.length > 0;
+        console.log(`[SIGNIN] user login ${login_successfuly ? "successsfully" : "failed"}`);
+
+        return login_successfuly
       }
 
       // key system
