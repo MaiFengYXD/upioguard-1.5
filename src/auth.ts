@@ -30,7 +30,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         !profile.id ||
         !profile.username ||
         !profile.email ||
-        !user.id ||
+        // !user.id ||
         !user.name
       ) {
         return false;
