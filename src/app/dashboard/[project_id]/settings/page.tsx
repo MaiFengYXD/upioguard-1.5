@@ -102,7 +102,7 @@ export default function Settings({params}: {params: {project_id: string}}) {
     if (url.startsWith("https://github.com/")) {
       const github_owner_regex = /github\.com\/([^/]+)/;
       const github_repo_regex = /github\.com\/[^/]+\/([^/]+)/;
-      const github_path_regex = /github\.com\/[^/]+\/[^/]+\/blob\/main\/([^/]+)/;
+      const github_path_regex = /github\.com\/[^/]+\/[^/]+\/blob\/[^/]+\/([^/]+)/;
 
       const github_owner = github_owner_regex.exec(url)?.[1];
       const github_repo = github_repo_regex.exec(url)?.[1];
@@ -113,7 +113,7 @@ export default function Settings({params}: {params: {project_id: string}}) {
     if (url.startsWith("https://raw.githubusercontent.com")) {
       const github_owner_regex = /raw\.githubusercontent\.com\/([^/]+)/;
       const github_repo_regex = /raw\.githubusercontent\.com\/[^/]+\/([^/]+)/;
-      const github_path_regex = /raw\.githubusercontent\.com\/[^/]+\/[^/]+\/main\/([^/]+)/;
+      const github_path_regex = /raw\.githubusercontent\.com\/[^/]+\/[^/]+\/[^/]+\/([^/]+)/;
 
       const github_owner = github_owner_regex.exec(url)?.[1];
       const github_repo = github_repo_regex.exec(url)?.[1];
